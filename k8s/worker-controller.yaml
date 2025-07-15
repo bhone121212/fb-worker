@@ -6,7 +6,7 @@ metadata:
   name: fb-worker
   namespace: crawler-apps
 spec:
-  replicas: 30
+  replicas: 3
   selector:
     matchLabels:
       app: taskQueue
