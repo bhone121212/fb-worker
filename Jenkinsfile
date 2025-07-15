@@ -224,8 +224,8 @@ pipeline {
                         sh '''
                             echo "🔄 Updating Kubernetes YAML with image: $FULL_IMAGE"
 
-                            sed -i "s|image:.*|image: $FULL_IMAGE|" k8s/api-controller.yaml
-                            sed -i "s|image:.*|image: $FULL_IMAGE|" k8s/api-service.yaml
+                            sed -i "s|image:.*|image: $FULL_IMAGE|" k8s/worker-controller.yaml
+                            
 
                             for file in k8s/*.yaml; do
                                 sed -i "s|^namespace:.*|namespace: $K8S_NAMESPACE|" "$file"
