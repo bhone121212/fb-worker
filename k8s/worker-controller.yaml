@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    component: worker
+  name: fb-worker
+  namespace: crawler-apps
+spec:
+  replicas: 30
+  selector:
+    matchLabels:
+      app: taskQueue
+      component: worker
+  template:
+    metadata:
+      labels:
+        app: taskQueue
+        component: worker
+    spec:
+      containers:
+        - image: registry.gitlab.com/thantzawlyn/fb_worker_update/main
+          name: worker
+          env:
+            - name: FBS_DATABASE_POSTGRESQL_SERVICE_HOST
+              value: postgresql://fbs:yah7WUy1Oi8G@192.168.11.202:5432/fbs
+          command:
+            - bash
+            - -c
+            - "nohup node ./proxy/proxy.js > ./proxy/log & /usr/local/bin/celery -A app worker --loglevel=info --concurrency=1 --max-tasks-per-child=1"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "300m"
+            limits:
+              memory: "1200Mi"
+              cpu: "500m"
