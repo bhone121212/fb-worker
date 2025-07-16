@@ -4,7 +4,7 @@ metadata:
   labels:
     component: worker
   name: fb-worker
-  namespace: crawler-apps
+  namespace: fb-crawler-apps
 spec:
   replicas: 3
   selector:
