@@ -1,5 +1,5 @@
 requests
-mqp==2.6.0
+mqp
 aniso8601==8.0.0
 attrs==19.3.0
 billiard==3.6.3.0
