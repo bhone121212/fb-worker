@@ -18,7 +18,7 @@ spec:
         component: worker
     spec:
       containers:
-        - image: bhonebhone/fb-worker:v7
+        - image: bhonebhone/fb-worker:v8
           name: worker
           env:
             - name: FBS_DATABASE_POSTGRESQL_SERVICE_HOST
