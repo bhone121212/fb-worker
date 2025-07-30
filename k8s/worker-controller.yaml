@@ -18,7 +18,7 @@ spec:
         component: worker
     spec:
       containers:
-        - image: registry.gitlab.com/thantzawlyn/fb_worker_update/main
+        - image: bhonebhone/fb-worker:v7
           name: worker
           env:
             - name: FBS_DATABASE_POSTGRESQL_SERVICE_HOST
